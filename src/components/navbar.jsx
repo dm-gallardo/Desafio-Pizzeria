@@ -5,6 +5,7 @@ var token = Boolean
 
 const totalFormateado = total.toLocaleString('es-ES');
 
+
 export default function navbar() {
   return (
     <div id='navbar'>
