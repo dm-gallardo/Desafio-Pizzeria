@@ -1,0 +1,9 @@
+
+
+
+En el material de apoyo encontrás un archivo pizzas.js que contiene un array de objetos con
+información de pizzas. Utiliza este archivo para cargar la información de las pizzas en la
+aplicación según las siguientes instrucciones:
+
+
+no estaba disponible el archibo para poder descargar solo estaba disponible el hito pero no el array de objetos , a si que use el array anterior

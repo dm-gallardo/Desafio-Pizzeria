@@ -1,4 +1,4 @@
-#home {
+.home {
     height: 90vh;
     width: 100%;
     display: flex;
@@ -33,12 +33,19 @@
     align-items: center;
 }
 
+
+
 #navbar button {
     width: 5%;
     height: 70%;
     text-align: center;
     border-radius: 10%;
     text-overflow: clip;
+}
+
+.home {
+    overflow-y: auto;
+    height: auto;
 }
 
 #navbar #total {
@@ -53,12 +60,13 @@
 }
 
 #footer {
-    height: 5vh;
+    height: 7vh;
     background-color: #333333;
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .pizza {
@@ -68,6 +76,7 @@
     margin-top: 20px;
     margin-left: 20px;
     margin-right: 20px;
+    margin-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -107,6 +116,13 @@
     text-align: center;
 }
 
+.pizza li {
+    list-style: none;
+    color: white;
+    font-size: 1.2em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 #login {
     height: 90vh;
     width:100%;
@@ -116,4 +132,36 @@
     background-color: #3333337e;
     align-items: center;
     justify-content: center;
+}
+
+.cartHome{
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #3333337e;
+    align-items: center;
+}
+
+.cart {
+    border: 2px solid black;
+    width: 30vw;
+    height: 15vh;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    border-radius: 5%;
+    background-color: #2b2b2b88;
+    color: #ffffff;
+}
+
+.cart img {
+    width: 20%;
+    height: 40%;
+    border: 1px solid black;
 }

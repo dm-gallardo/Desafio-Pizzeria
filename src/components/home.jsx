@@ -1,16 +1,11 @@
-import React from 'react'
 import Header from './header'
-import Napolitana from './napolitana'
-import Pepperoni from './pepperoni'
-import Espanola from './espanola'
+import Cardpizza from './cardpizza'
 
 export default function home() {
   return (
-    <div id='home'>
+    <div className='home'>
       <Header/>
-      <Napolitana/>
-      <Pepperoni/>
-      <Espanola/>
+      <Cardpizza/>
     </div>
   )
 }

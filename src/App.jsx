@@ -1,20 +1,17 @@
-import { useState } from 'react'
 import './App.css'
 import Navbar from './components/navbar'
 import Footer from './components/footer'
 import Home from './components/home'
-import Login from './components/login'
+import Cart from './components/cart'
 
 function App() {
-
-  const [count, setCount] = useState(0)
   
   return (
     <>
       <div>
         <Navbar />
-        <Login />
-        {/* <Home /> */}
+        <Home/>
+        {/* <Cart/> */}
         <Footer />
       </div>
     </>
