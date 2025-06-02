@@ -33,14 +33,15 @@
     align-items: center;
 }
 
-
-
 #navbar button {
-    width: 5%;
-    height: 70%;
+    width: 7rem;
+    height: 2rem;
     text-align: center;
     border-radius: 10%;
     text-overflow: clip;
+    text-decoration: none;
+    background-color: rgb(109, 109, 109);
+    color: #ffffff;
 }
 
 .home {
@@ -50,8 +51,8 @@
 
 #navbar #total {
     margin-left: 50%;
-    width: 20%;
-    height: 70;
+    width: 30vh;
+    height: 2rem;
     background-color: #7a7a7a;
     color: white;
     display: flex;
@@ -164,4 +165,37 @@
     width: 20%;
     height: 40%;
     border: 1px solid black;
+}
+
+.error404 {
+    height: 90vh;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    display: flex;
+    background-color: #ffffff;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile {
+    height: 90vh;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    background-color: #3333337e;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile button {
+    width: 150%;
+    height: 100%;
+    background-color: #e4e4e4;
+    border-radius: 10%;
+    font-size: 1em;
+    align-items: center;
+    text-align: center;
 }

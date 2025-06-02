@@ -1,10 +1,7 @@
-// import pizzas from "../assets/Pizzas.js"
 import testeo from "../assets/mapeoPizzas";
-// se modifica cardpizza para que llame a funcion del mapeo de pizzas
-export default function cardPizza() {
 
-  const {pizzas} = testeo(); //llama la funcion del mapeo de pizzas
-
+export default function allPizzas() {
+  const {pizzas} = testeo();
 
   return (
     <div className="home">
@@ -14,11 +11,13 @@ export default function cardPizza() {
                 <img src={mapeo.img}></img>
                 <p>INGREDIENTES </p>
                 <li>{mapeo.ingredients.toString().replaceAll(",",",")}</li>
+                <h3>{mapeo.desc}</h3>
                 <p>${mapeo.price}</p>
-                <button>Ver Mas </button>
-                <button>Añadir</button>
+
               </div>
             ))}
     </div>
   )
+
 }
+
