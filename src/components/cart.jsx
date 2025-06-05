@@ -1,40 +1,32 @@
+import { useState, useEffect, useContext } from 'react';
+import mapeoPizza from '../context/mapeoPizzas.jsx';
+import { TotalContext } from '../context/contextTotal.jsx';
+import { CartCountContext } from '../context/contextCantidad.jsx';
 
-import { useState } from 'react'
-import pizzaCart from '../assets/PizzaCart.js';
+export default function Cart() {
+  
+  const { pizzas } = mapeoPizza();
+  const { counts, addCount, lessCount, getCount } = useContext(CartCountContext);
+  const { updateTotal } = useContext(TotalContext);
 
+  const total = pizzas
+    ? pizzas.reduce((acc, pizza) => acc + getCount(pizza.id) * pizza.price, 0)
+    : 0;
 
-export default function cart() {
-    
-    const [cartItems, setCartItems] = useState(
-    pizzaCart.map((item) => ({ ...item }))
-    );
+  useEffect(() => {
+    updateTotal(total);
+  }, [counts, pizzas]);
 
-    
-    const add = (index) => {
-    const updatedCart = [...cartItems];
-    updatedCart[index].count += 1;
-    setCartItems(updatedCart);
-    };
-
-    
-    const less = (index) => {
-    const updatedCart = [...cartItems];
-    updatedCart[index].count = Math.max(updatedCart[index].count - 1, 0);
-    setCartItems(updatedCart);
-    };
-
-    const total = cartItems.reduce((acc, item) => acc + item.count * item.price, 0);
-    
-    return (
+  return (
     <div className="cartHome">
-      {cartItems.map((item, index) => (
-        <div className="cart" key={item.id}>
-          <img src={item.img} alt={item.name} />
-          <h1>{item.name}</h1>
-          <p>Precio unitario: ${item.price}</p>
-          <button onClick={() => add(index)}> + </button>
-          <p>Cantidad: {item.count}</p>
-          <button onClick={() => less(index)}> - </button>
+      {pizzas?.map((pizza) => (
+        <div className="cart" key={pizza.id}>
+          <img src={pizza.img} alt={pizza.name} />
+          <h1>{pizza.name}</h1>
+          <p>Precio unitario: ${pizza.price}</p>
+          <button onClick={() => addCount(pizza.id)}> + </button>
+          <p>Cantidad: {getCount(pizza.id)}</p>
+          <button onClick={() => lessCount(pizza.id)}> - </button>
         </div>
       ))}
       <div className="total">
