@@ -1,26 +1,24 @@
-import { useContext } from 'react';
-import { useNavigate , NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { use, useContext , useEffect} from 'react';
 import { TotalContext } from '../context/contextTotal.jsx';
-import TokenContext from '../context/token';
 import { CartCountContext } from '../context/contextCantidad.jsx';
+import { useAuth } from '../context/UserContext.jsx';
 
 export default function Profile() {
-  const activeStyle = ({ isActive }) => ({});
   const { total } = useContext(TotalContext);
-  const { token, setToken } = useContext(TokenContext);
   const { resetCounts } = useContext(CartCountContext);
+  const { token, email, setToken, handleLogout, fetchUserProfile} = useAuth();
   const navigate = useNavigate();
-
-  const usuario = 'Usuario';
-  const mail = 'invento@nose.com';
+  const activeStyle = ({ isActive }) => ({});
+  const logged_user = JSON.parse(localStorage.getItem("logged_user"))
 
   return (
     <div className='profile'>
       <h1>Profile Page</h1>
-      <h2>Usuario: {usuario}</h2>
-      <h2>Correo: {mail}</h2>
+      <h2>Bienvenido</h2>
+      <h2>Usuario: {logged_user.email}</h2>
       <link></link>
-      <NavLink to="/" style={activeStyle}><button onClick={() => {setToken(false);resetCounts();console.log(token);}}>LogOut</button></NavLink>
+      <button onClick={() => handleLogout(resetCounts, navigate)}>LogOut</button>
     </div>
   );
 }

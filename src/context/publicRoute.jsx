@@ -1,10 +1,10 @@
 import { useContext } from 'react';
-import TokenContext from './token';
 import { Navigate } from 'react-router-dom';
-
+import { useAuth } from '../context/UserContext.jsx';
 
 const PublicRoute = ({ children }) => {
-  const { token } = useContext(TokenContext);
+
+  const { token, setToken } = useAuth();
 
   return !token ? children : <Navigate to="/" replace />;
 };

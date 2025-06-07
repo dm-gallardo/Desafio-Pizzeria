@@ -1,27 +1,17 @@
 import { NavLink, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import { TotalContext } from '../context/contextTotal.jsx';
-import TokenContext from '../context/token';
 import { CartCountContext } from '../context/contextCantidad.jsx';
+import { useAuth } from '../context/UserContext.jsx';
 
 export default function Navbar() {
   
   const { total } = useContext(TotalContext);
-  const { token, setToken } = useContext(TokenContext);
-  const totalFormateado = total.toLocaleString('es-ES');
   const { resetCounts } = useContext(CartCountContext);
+  const { token, setToken, handleLogout } = useAuth();
+  const totalFormateado = total.toLocaleString('es-ES');
   const navigate = useNavigate();
   const activeStyle = ({ isActive }) => ({});
-
-  const logout = () => {
-  console.log('Logout: antes de resetCounts');
-  resetCounts();
-  console.log('Logout: después de resetCounts');
-  setToken(false);
-  setTimeout(() => {
-    navigate('/');
-  }, 50);
-};
 
   return (
     <div id="navbar">
@@ -32,7 +22,7 @@ export default function Navbar() {
           <NavLink to="/profile" style={activeStyle}><button>Profile</button></NavLink>
           <NavLink to="/cart" style={activeStyle}><button id="total"><p>El total de la compra es de: ${totalFormateado}</p></button></NavLink>
           <button style={{}}>Pagar</button>
-          <button onClick={logout}>LogOut</button>
+          <button onClick={() => handleLogout(resetCounts, navigate)}>LogOut</button>
         </>
       ) : (
         <>

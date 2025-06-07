@@ -3,13 +3,16 @@
 import React from 'react';
 import TotalProvider from './contextTotal';
 import { CartCountProvider } from './contextCantidad';
+import { AuthProvider } from '../context/UserContext.jsx';
 
 export default function ContextJuntos({ children }) {
   return (
-    <TotalProvider>
-      <CartCountProvider>
-        {children}
-      </CartCountProvider>
-    </TotalProvider>
+      <AuthProvider>
+         <TotalProvider>
+          <CartCountProvider>
+            {children}
+          </CartCountProvider>
+        </TotalProvider>
+      </AuthProvider>
   );
 }

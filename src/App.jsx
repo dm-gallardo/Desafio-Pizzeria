@@ -9,7 +9,6 @@ import Error404 from './components/error404'
 import PizzaDesc from './components/pizzaDesc'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import ContextJuntos from './context/contextjuntos.jsx'
-import { TokenProvider } from './context/token.jsx'
 import PrivateRoute from './context/PrivateRoute';
 import PublicRoute from './context/PublicRoute';
 import Profile from './components/profile.jsx'
@@ -17,7 +16,6 @@ import Profile from './components/profile.jsx'
 function App() {
   return (
     <ContextJuntos>
-      <TokenProvider>
         <BrowserRouter>
           <Navbar />
           <Routes>
@@ -43,7 +41,6 @@ function App() {
           </Routes>
           <Footer />
         </BrowserRouter>
-      </TokenProvider>
     </ContextJuntos>
   );
 }

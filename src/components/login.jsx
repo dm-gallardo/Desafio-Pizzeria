@@ -1,46 +1,24 @@
-import { useState } from 'react'
-import TokenContext from '../context/token';
-import { useContext } from 'react';
+import { useAuth } from '../context/UserContext.jsx';
 
-export default function login() {
-
-  const [usuario , setUsuario] = useState('');
-  const [pass, setPass] = useState('');
-  const { token, setToken } = useContext(TokenContext);
-
-  function handleUsuario(event) { 
-    setUsuario(event.target.value)
-  }
-
-  function handlepass(event) {
-    setPass(event.target.value)
-  }
-
-  function inicioSesion() {
-    if(pass === 'admin' || usuario === 'admin'){
-      alert('usuario correcto')
-      setToken(true)
-    }
-    else
-    alert('Usuario o contraseña incorrectos')
+export default function Login() {
   
-  }
-  
+  const { email, password, token, setToken, handleEmail, handlePassword, handleLogin } = useAuth();
+
   return (
     <div id='login'>
       <label htmlFor="User">Usuario</label>
-      <input type="text" onChange={handleUsuario} id='User' />
-      <label htmlFor="Pass">Contraseña</label>
-      <input type="password" onChange={handlepass} id="Pass"/>
-      <button onClick={inicioSesion}>inicio de sesión</button>
+      <input type="text" onChange={handleEmail} id='User' />
+      
+      <label htmlFor="Password">Contraseña</label>
+      <input type="Password" onChange={handlePassword} id="Pass"/>
+
+      <button onClick={handleLogin}>Inicio de sesión</button>
 
       <div>
-        <h1>esta hardcodeado para que sea</h1>
-        <h2>usuario: admin</h2>
-        <h2>contraseña: admin</h2>
+        <h1>Está hardcodeado para que sea</h1>
+        <h2>Usuario: test@test.com</h2>
+        <h2>Contraseña: 123123</h2>
       </div>
-    
-    
     </div>
-  )
-} 
+  );
+}
