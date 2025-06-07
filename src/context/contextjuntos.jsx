@@ -4,7 +4,7 @@ import React from 'react';
 import TotalProvider from './contextTotal';
 import { CartCountProvider } from './contextCantidad';
 
-export default function contextJuntos({ children }) {
+export default function ContextJuntos({ children }) {
   return (
     <TotalProvider>
       <CartCountProvider>

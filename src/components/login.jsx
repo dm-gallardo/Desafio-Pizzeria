@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import TokenContext from '../context/token';
+import { useContext } from 'react';
 
 export default function login() {
 
   const [usuario , setUsuario] = useState('');
   const [pass, setPass] = useState('');
-  
+  const { token, setToken } = useContext(TokenContext);
+
   function handleUsuario(event) { 
     setUsuario(event.target.value)
   }
@@ -16,6 +19,7 @@ export default function login() {
   function inicioSesion() {
     if(pass === 'admin' || usuario === 'admin'){
       alert('usuario correcto')
+      setToken(true)
     }
     else
     alert('Usuario o contraseña incorrectos')

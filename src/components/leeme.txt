@@ -1,3 +1,0 @@
-// se modifica cardpizza para que llame a funcion del mapeo de pizzas
-// muestra las pizzas y su descripcion en el home , para evitar el pedido sin el logueo (a futuro)
-// pízzas.jsx tendra la funcion con los botones de añadir y ver más con sus respectivas funciones

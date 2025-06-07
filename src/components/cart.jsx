@@ -4,9 +4,8 @@ import { TotalContext } from '../context/contextTotal.jsx';
 import { CartCountContext } from '../context/contextCantidad.jsx';
 
 export default function Cart() {
-  
   const { pizzas } = mapeoPizza();
-  const { counts, addCount, lessCount, getCount } = useContext(CartCountContext);
+  const { counts, addCount, lessCount, getCount, resetCounts } = useContext(CartCountContext);
   const { updateTotal } = useContext(TotalContext);
 
   const total = pizzas
@@ -30,6 +29,9 @@ export default function Cart() {
         </div>
       ))}
       <div className="total">
+        <button onClick={resetCounts}>
+          Vaciar carrito
+        </button>
         <h2>Total de la cuenta es: ${total}</h2>
       </div>
     </div>

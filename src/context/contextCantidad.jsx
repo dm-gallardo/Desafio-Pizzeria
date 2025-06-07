@@ -3,10 +3,7 @@ import React, { createContext, useState } from 'react';
 export const CartCountContext = createContext();
 
 export function CartCountProvider({ children }) {
-
-  
   const [counts, setCounts] = useState({});
-
 
   const addCount = (id) => {
     setCounts(prev => ({
@@ -22,10 +19,14 @@ export function CartCountProvider({ children }) {
     }));
   };
 
+  const resetCounts = () => {
+    setCounts(0);
+  };
+
   const getCount = (id) => counts[id] || 0;
 
   return (
-    <CartCountContext.Provider value={{ counts, addCount, lessCount, getCount }}>
+    <CartCountContext.Provider value={{ counts, addCount, lessCount, getCount, resetCounts }}>
       {children}
     </CartCountContext.Provider>
   );
